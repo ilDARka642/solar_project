@@ -94,9 +94,11 @@ def write_space_objects_data_to_file(output_filename, space_objects):
     **output_filename** — имя входного файла
     **space_objects** — список объектов планет и звёзд
     """
-    with open(output_filename, 'w') as out_file:
-        for obj in space_objects:
-            print(out_file, "%s %d %s %f %f %f %f %f" % (obj.type, obj.R, obj.color, obj.m, obj.x, obj.y, obj.Vx, obj.Vy))
+    out_file = open(output_filename, 'w')
+    for obj in space_objects:
+        out_file.write(obj.type + ' ,' + str(obj.R) + ' ,' + obj.color + ' ,' + str(obj.m) + ' ,' + str(obj.x) +
+                       ' ,' + str(obj.y) + ' ,' + str(obj.Vx) + ' ,' + str(obj.Vy) + '\n')
+    out_file.close()
             # FIXME: should store real values
 
 
